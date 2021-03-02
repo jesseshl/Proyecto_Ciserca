@@ -9,27 +9,30 @@
 
 body{
     background-color:#ffffff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 main{
     background-color: #E5E5E5;
     margin: 4rem auto;
     padding: 2rem;
-    width: 65%;
+    width: 60%;
     border-bottom: 0.7rem solid #00ADB5;
     border-radius: 2rem 2rem 4rem 4rem;
     box-shadow: .5rem -.5rem .5rem #0000004d;
     animation-name: cambio_colores;
-    animation-duration: 8s;
+    animation-duration: 9s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
 
 @keyframes cambio_colores{
-    40%{ border-bottom: 0.7rem solid #00ADB5;}
-    60%{ border-bottom: 0.7rem solid #3F72AF;}
-    80%{ border-bottom: 0.7rem solid #112D4E;}
-    100%{border-bottom: 0.7rem solid #00ADB5;}
+    0%{ border-bottom: 0.7rem solid  #00ADB5;}
+    20%{ border-bottom: 0.7rem solid #3F72AF;}
+    40%{ border-bottom: 0.7rem solid #112D4E;}
+    60%{border-bottom: 0.7rem solid  #d80e0e;}
+    80%{ border-bottom: 0.7rem solid#112D4E;}
+    100%{border-bottom: 0.7rem solid  #00ADB5;}
 }
 
 .nuestro_formulario{
@@ -86,6 +89,18 @@ main{
     outline: none;
     box-shadow: 0.1rem .2rem 0.2rem #3b3b44;
     cursor:text;
+}
+.grupo_genero{
+    grid-column: span 2;
+}
+
+.input_orden_genero{
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+}
+.input_genero{
+    margin-top: .2rem;
 }
 
 .parte_del_error{
