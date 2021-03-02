@@ -187,6 +187,7 @@ main{
     opacity: 1;
 }
 
+
 .grupos-incorrecto .formulario_estado, .grupos-incorrecto .formulario__label{
     color: red;
     opacity: 1;
@@ -211,6 +212,13 @@ main{
 
     .formulario__input{
         width: 90%;
+    }
+
+    .grupo_genero{
+        grid-column: span 1;     
+    }
+    .input_orden_genero{
+        width:100%;
     }
 
     .mensaje,.estilo_mas{

@@ -1,0 +1,50 @@
+const Formulario = document.getElementById("Formulario");  //aceder a la idformulario
+
+const tota_input = document.querySelectorAll("#Formulario input");//aceder a todos los input del formulario, y se almacena en la constante tota_input en forma de arreglo
+
+const elementos_validacion = {
+    nombre: /^[A-Za-z\s]{3,40}$/,
+    edad: /^[0-9]{1,3}$/
+}
+
+const validarFormulario = function(e){
+   switch (e.target.name){
+       case "nombre"    : if (elementos_validacion.nombre.test(e.target.value)){
+            document.getElementById("grupo__nombre").classList.remove("grupos-incorrecto");
+            document.getElementById("grupo__nombre").classList.add("grupos-correcto");
+            document.querySelector("#grupo__nombre i").classList.remove("fa-exclamation-circle");
+            document.querySelector("#grupo__nombre i").classList.add("fa-check-circle");
+            
+       } else{
+            document.getElementById("grupo__nombre").classList.add("grupos-incorrecto");
+            document.getElementById("grupo__nombre").classList.remove("grupos-correcto");
+            document.querySelector("#grupo__nombre i").classList.remove("fa-check-circle");
+            document.querySelector("#grupo__nombre i").classList.add("fa-exclamation-circle");
+        }break;
+
+       case "edad"      : if (elementos_validacion.edad.test(e.target.value)){
+            document.getElementById("grupo__edad").classList.remove("grupos-incorrecto");
+            document.getElementById("grupo__edad").classList.add("grupos-correcto");
+            document.querySelector("#grupo__edad i").classList.remove("fa-exclamation-circle");
+            document.querySelector("#grupo__edad i").classList.add("fa-check-circle");
+       }else{
+        document.getElementById("grupo__edad").classList.add("grupos-incorrecto");
+        document.getElementById("grupo__edad").classList.remove("grupos-correcto");
+        document.querySelector("#grupo__edad i").classList.remove("fa-check-circle");
+        document.querySelector("#grupo__edad i").classList.add("fa-exclamation-circle");
+
+       }break;
+
+       case "contraseña":            break;
+       case "coincidir" :            break;
+       case "correo"    :            break;
+       case "telefono"  :            break;
+       case "genero"    :            break;
+   }
+}
+
+tota_input.forEach(function(en_input){
+    en_input.addEventListener('keyup', validarFormulario);
+    en_input.addEventListener('blur', validarFormulario);
+});
+
