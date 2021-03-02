@@ -24,6 +24,7 @@ const validarFormulario = function(e){
            
 
        case "contraseña":Validar_campos(elementos_validacion.contraseña,e.target,"contraseña");
+            coincidir_contraseña(); 
        break;
            
        case "coincidir" :coincidir_contraseña();          
@@ -65,8 +66,10 @@ const coincidir_contraseña=function(){
          document.querySelector("#grupo__coincidir i").classList.remove("fa-check-circle");
          document.querySelector("#grupo__coincidir i").classList.add("fa-exclamation-circle");
         }else{
-        
-          
+         document.getElementById("grupo__coincidir").classList.remove("grupos-incorrecto");
+         document.getElementById("grupo__coincidir").classList.add("grupos-correcto");
+         document.querySelector("#grupo__coincidir i").classList.add("fa-check-circle");
+         document.querySelector("#grupo__coincidir i").classList.remove("fa-exclamation-circle");
         }
 }
 
