@@ -7,7 +7,7 @@ const elementos_validacion = {
     edad: /^[0-9]{1,3}$/,
     contraseña:  /^.{4,12}$/,
     correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-    telefono: /^\d{7,14}$/
+    telefono: /^\d{7,11}$/
 }
 
 const validarFormulario = function(e){
@@ -23,11 +23,11 @@ const validarFormulario = function(e){
        break;
            
 
-       case "contraseña":Validar_campos(elementos_validacion.contraseña,e.target,"contraseña");
-            coincidir_contraseña(); 
+       case "contraseña":coincidir_contraseña();
+           Validar_campos(elementos_validacion.contraseña,e.target,"contraseña");
        break;
            
-       case "coincidir" :coincidir_contraseña();          
+       case "Coincidir" :coincidir_contraseña();          
        break;
            
        case "correo"    :Validar_campos(elementos_validacion.correo,e.target,"correo");
@@ -60,23 +60,18 @@ const coincidir_contraseña=function(){
     const contraseña1= document.getElementById("contraseña");
     const contraseña2= document.getElementById("Coincidir");
     
-    if (contraseña1.value !== contraseña2){
-         document.getElementById("grupo__coincidir").classList.add("grupos-incorrecto");
-         document.getElementById("grupo__coincidir").classList.remove("grupos-correcto");
-         document.querySelector("#grupo__coincidir i").classList.remove("fa-check-circle");
-         document.querySelector("#grupo__coincidir i").classList.add("fa-exclamation-circle");
+    if (contraseña1.value !== contraseña2.value){
+         document.getElementById(`grupo__coincidir`).classList.add("grupos-incorrecto");
+         document.getElementById(`grupo__coincidir`).classList.remove("grupos-correcto");
+         document.querySelector(`#grupo__coincidir i`).classList.remove("fa-check-circle");
+         document.querySelector(`#grupo__coincidir i`).classList.add("fa-exclamation-circle");
         }else{
-         document.getElementById("grupo__coincidir").classList.remove("grupos-incorrecto");
-         document.getElementById("grupo__coincidir").classList.add("grupos-correcto");
-         document.querySelector("#grupo__coincidir i").classList.add("fa-check-circle");
-         document.querySelector("#grupo__coincidir i").classList.remove("fa-exclamation-circle");
+         document.getElementById(`grupo__coincidir`).classList.remove("grupos-incorrecto");
+         document.getElementById(`grupo__coincidir`).classList.add("grupos-correcto");
+         document.querySelector(`#grupo__coincidir i`).classList.add("fa-check-circle");
+         document.querySelector(`#grupo__coincidir i`).classList.remove("fa-exclamation-circle");
         }
 }
-
-
-
-
-
 
 tota_input.forEach(function(en_input){
     en_input.addEventListener('keyup', validarFormulario);
