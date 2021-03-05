@@ -2,6 +2,7 @@ const Formulario = document.getElementById("Formulario");  //aceder a la idformu
 
 const tota_input = document.querySelectorAll("#Formulario input");//aceder a todos los input del formulario, y se almacena en la constante tota_input en forma de arreglo
 
+
 const elementos_validacion = {
     nombre: /^[A-Za-z\s]{3,40}$/,
     edad: /^[0-9]{1,3}$/,
@@ -9,10 +10,11 @@ const elementos_validacion = {
     correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
     telefono: /^\d{7,11}$/
 }
-const campos = {
+let campos = {
 	nombre: false,
 	edad: false,
 	contraseña: false,
+    Coincidir:false,
 	correo: false,
 	telefono: false
 }
@@ -30,15 +32,16 @@ const validarFormulario = function(e){
             campos[edad]=true; 
        }else{
         document.getElementById("grupo__edad").classList.add("grupos-incorrecto");}
-           campos[edad]=false; 
+            campos[edad]=false; 
        break;
            
 
-       case "contraseña":coincidir_contraseña();
+       case "contraseña":coincidir_contraseña("contraseña");
            Validar_campos(elementos_validacion.contraseña,e.target,"contraseña");
        break;
            
-       case "Coincidir" :coincidir_contraseña();          
+       case "Coincidir" :coincidir_contraseña("Coincidir");
+            
        break;
            
        case "correo"    :Validar_campos(elementos_validacion.correo,e.target,"correo");
@@ -55,20 +58,20 @@ const Validar_campos= function(elementos_validacion,input,campo){
         if (elementos_validacion.test(input.value)){
             document.getElementById(`grupo__${campo}`).classList.remove("grupos-incorrecto");
             document.getElementById(`grupo__${campo}`).classList.add("grupos-correcto");
-            document.querySelector(`grupo__${campo} i`).classList.remove("fa-exclamation-circle");
-            document.querySelector(`grupo__${campo} i`).classList.add("fa-check-circle");
-            campos[campo] = true; 
+            document.querySelector(`#grupo__${campo} i`).classList.remove("fa-exclamation-circle");
+            document.querySelector(`#grupo__${campo} i`).classList.add("fa-check-circle");
+            campos[campo]=true;
        } else{
             document.getElementById(`grupo__${campo}`).classList.add("grupos-incorrecto");
             document.getElementById(`grupo__${campo}`).classList.remove("grupos-correcto");
-            document.querySelector(`grupo__${campo} i`).classList.remove("fa-check-circle");
-            document.querySelector(`grupo__${campo} i`).classList.add("fa-exclamation-circle");
-            campos[campo] = false;
+            document.querySelector(`#grupo__${campo} i`).classList.remove("fa-check-circle");
+            document.querySelector(`#grupo__${campo} i`).classList.add("fa-exclamation-circle");
+            campos[campo]=false;
         }
 
 }
 
-const coincidir_contraseña=function(){
+const coincidir_contraseña= function(camposs){
     const contraseña1= document.getElementById("contraseña");
     const contraseña2= document.getElementById("Coincidir");
     
@@ -77,13 +80,13 @@ const coincidir_contraseña=function(){
          document.getElementById(`grupo__coincidir`).classList.remove("grupos-correcto");
          document.querySelector(`#grupo__coincidir i`).classList.remove("fa-check-circle");
          document.querySelector(`#grupo__coincidir i`).classList.add("fa-exclamation-circle");
-         campos[contraseña] = false;
+         campos[camposs]=false;
         }else{
          document.getElementById(`grupo__coincidir`).classList.remove("grupos-incorrecto");
          document.getElementById(`grupo__coincidir`).classList.add("grupos-correcto");
          document.querySelector(`#grupo__coincidir i`).classList.add("fa-check-circle");
          document.querySelector(`#grupo__coincidir i`).classList.remove("fa-exclamation-circle");
-         campos[contraseña] = true;
+         campos[camposs]=true;
         }
 }
 
@@ -93,30 +96,25 @@ tota_input.forEach(function(en_input){
 });
 
 
+Formulario.addEventListener('submit',function(e){
 
-Formulario.addEventListener('submit',function(){
-
-     const terminos = document.getElementById('terminos');
+    e.preventDefault();
     
-    const gen1 = document.getElementById('masculino');
-    const gen2 = document.getElementById('femenino');
-    const gen3 = document.getElementById('otro');
-    
-	if(campos.nombre && campos.edad && campos.contraseña && campos.correo && campos.telefono && (gen1.checked || gen2.checked || gen3.checked )){
-		formulario.reset();
+	if(campos.nombre && campos.contraseña && campos.Coincidir && campos.correo && campos.telefono){
+        Formulario.reset();
+		document.getElementById('mensaje_exito').classList.add('mensaje_exito-activo');
+        document.getElementById('mensaje').classList.remove('mensaje-active');
+        document.querySelectorAll(".grupos-correcto").forEach(function(eliminar_iconos){
         
-		document.getElementById('mensaje_exito').classList.add('.mensaje_exito-activo');
-		setTimeout(() => {
-			document.getElementById('mensaje_exito').classList.remove('.mensaje_exito-activo');
-		}, 3000);
+        eliminar_iconos.classList.remove("grupos-correcto");
+        });
 
-		document.querySelectorAll('grupos-correcto').forEach(function(icono){
-			icono.classList.remove('grupos-correcto');
-		});
-    
-    
+        setTimeout(() => {
+                document.getElementById("mensaje_exito").classList.remove("mensaje_exito-activo");
+        }, 5000);
+        
     } else {
-		document.getElementById('mensaje').classList.add('mensaje-active');
+        document.getElementById('mensaje').classList.add('mensaje-active');
 	}
 });
 

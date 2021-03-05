@@ -25,13 +25,12 @@ main{
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
-
-@keyframes cambio_colores{
-    0%{ border-bottom: 0.7rem solid  #00ADB5;}
-    20%{ border-bottom: 0.7rem solid #3F72AF;}
-    40%{ border-bottom: 0.7rem solid #112D4E;}
-    60%{border-bottom: 0.7rem solid  #d80e0e;}
-    80%{ border-bottom: 0.7rem solid#112D4E;}
+@keyframes cambio_colores {
+    0%{ border-bottom: 0.7rem solid  #00ADB5; }
+    20%{ border-bottom: 0.7rem solid #3F72AF; }
+    40%{ border-bottom: 0.7rem solid #112D4E; }
+    60%{border-bottom: 0.7rem solid  #d80e0e; }
+    80%{ border-bottom: 0.7rem solid#112D4E;  }
     100%{border-bottom: 0.7rem solid  #00ADB5;}
 }
 
@@ -42,7 +41,7 @@ main{
     position: relative;
 }
 
-.caja_logo{
+.caja_logo , .sesion_text{
     grid-column: span 2;
     display:flex;
     flex-direction: column;
@@ -56,6 +55,37 @@ main{
     position: absolute;
     top:-5rem;
 }
+.sesion_text{
+    text-align:center;
+}
+
+.sesion_text p {
+    display: block;
+    font-family:'BioRhyme-Bold';
+    font-size:2.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #3F72AF;
+    margin:0;
+}
+
+.text_color{
+    animation-name: texto_colores;
+    animation-duration: 9s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-delay:9s;   
+}
+@keyframes texto_colores {
+    0%{  color:#00ADB5 ;}
+    20%{ color:#3F72AF ;}
+    40%{ color:#112D4E ;}
+    60%{ color:#d80e0e ;}
+    80%{ color:#112D4E ;}
+    100%{ color:#00ADB5 ;}
+}
+
+
 
 
 
@@ -119,8 +149,7 @@ main{
 }
 
 .mensaje{
-    height: 3rem;
-    line-height: 3rem;
+    padding:.5rem;
     background-color: #b30f0fe7;
     margin: 0 2rem;
     padding: 0 2rem;
@@ -133,6 +162,7 @@ main{
 }
 .mensaje p{
     margin: 0;
+    padding:.5rem;
 }
 
 .estilo_mas{
@@ -201,12 +231,12 @@ main{
 
 
 
-@media screen and (max-width: 750px){
+@media screen and (max-width: 800px){
     .nuestro_formulario{
         grid-template-columns: 1fr;
     } 
 
-    .caja_logo{
+    .caja_logo, .sesion_text, .grupo_genero,.mensaje,.estilo_mas{
         grid-column: span 1;
     }
 
@@ -214,15 +244,13 @@ main{
         width: 90%;
     }
 
-    .grupo_genero{
-        grid-column: span 1;     
-    }
     .input_orden_genero{
         width:100%;
     }
-
-    .mensaje,.estilo_mas{
-        grid-column: span 1;
+    .mensaje p{
+        font-size:.7rem;
+        margin: 0;
+        padding:.2rem;
     }
 }
 

@@ -12,22 +12,23 @@
 <body>
     <main>
         <form action="" method="POST" autocomplete="off" id="Formulario" class="nuestro_formulario">
-            <!-- Logo -->
+            <!-- Parte del Logo -->
             <div class="caja_logo">
                 <img class="logo" src="../img/ferrecasa.jpg" alt="Ferrecasa">
             </div>
 
+            <div class="sesion_text">
+                <p class="text_color">Iniciar Sesión </p>
+            </div>
 
                 <!--Parte de Ingresar Nombre -->
-
             <div class="grupos" id="grupo__nombre">
                 <label for="nombre" class="formulario__label">Nombre:</label>
 
                 <div class="parte_del_input">
-                    <input type="text" id="nombre" name="nombre" placeholder="Ejemplo: Luis" class="formulario__input">
+                    <input type="text" id="nombre" name="nombre" placeholder="Ejemplo: Luis" class="formulario__input" required>
                     <i class="formulario_estado  fas fa-exclamation-circle"></i>      
                 </div>
-                <p class="parte_del_error">El nombre tiene que ser de 4 a 6 digitos</p>
             </div>
 
 
@@ -36,10 +37,9 @@
                 <label for="edad" class="formulario__label">Edad: </label>
                 
                 <div class="parte_del_input">
-                    <input type="number" id="edad" name="edad" class="formulario__input edad__input" min="1" max="100" required>
+                    <input type="number" id="edad" name="edad" class="formulario__input edad__input" min="18" max="100" title="debes ingresar edad del 18 al 100." required >
                     <i class="formulario_estado fas fa-exclamation-circle"></i>
                 </div>
-                <p class="parte_del_error">Debe ser mayor de edad.</p>
             </div>
 
             <!--Parte de Ingresar Contraseña -->
@@ -48,10 +48,9 @@
                 <label for="contraseña" class="formulario__label">Contraseña:</label>
 
                 <div class="parte_del_input">
-                    <input type="password" id="contraseña" name="contraseña" class="formulario__input">
+                    <input type="password" id="contraseña" name="contraseña" class="formulario__input" required>
                     <i class="formulario_estado fas fa-exclamation-circle"></i>
                 </div>
-                <p class="parte_del_error">texto</p>
             </div>
 
             <!--Parte de Coincidir Contraseña -->
@@ -59,10 +58,9 @@
                 <label for="Coincidir" class="formulario__label">Repetir Contraseña: </label>
 
                 <div class="parte_del_input">
-                    <input type="password" id="Coincidir" name="Coincidir" class="formulario__input">
+                    <input type="password" id="Coincidir" name="Coincidir" class="formulario__input" required>
                     <i class="formulario_estado fas fa-exclamation-circle"></i>
                 </div>
-                <p class="parte_del_error">texto</p>
             </div>
 
             <!--Parte de Ingresar Correo -->
@@ -71,10 +69,9 @@
                 <label for="correo" class="formulario__label">Correo Electrónico: </label>
 
                 <div class="parte_del_input">
-                    <input type="email" id="correo" name="correo" placeholder="email@email.com" class="formulario__input">
+                    <input type="email" id="correo" name="correo" placeholder="email@email.com" class="formulario__input" required>
                     <i class="formulario_estado fas fa-exclamation-circle"></i>
                 </div>
-                <p class="parte_del_error">texto</p>
             </div>
 
             <!--Parte de Ingresar Telefono-->
@@ -83,10 +80,9 @@
                 <label for="telefono" class="formulario__label">Teléfono: </label>
 
                 <div class="parte_del_input">
-                    <input type="tel" id="telefono" name="telefono" class="formulario__input">
+                    <input type="tel" id="telefono" name="telefono" class="formulario__input" required>
                     <i class="formulario_estado fas fa-exclamation-circle"></i>
                 </div>
-                <p class="parte_del_error">texto</p>
             </div>
 
 
@@ -96,14 +92,12 @@
                 <label for="genero" class="formulario__label">Genero: </label>
 
                 <div class="parte_del_input  input_orden_genero">
-
                     <label for="masculino" class="formulario__label">Masculino</label>
-                    <input type="radio" id="masculino" name="genero" class="input_genero genero_total">
+                    <input type="radio" id="masculino" name="genero" class="input_genero genero_total" required>
                     <label for="femenino" class="formulario__label">Femenino</label>
-                    <input type="radio" id="femenino" name="genero" class="input_genero genero_total">
+                    <input type="radio" id="femenino" name="genero" class="input_genero genero_total" required>
                     <label for="otro" class="formulario__label">Otro</label>
-                    <input type="radio" id="otro" name="genero" class="input_genero genero_total">
-               
+                    <input type="radio" id="otro" name="genero" class="input_genero genero_total" required>
                 </div>
             </div>           
 
