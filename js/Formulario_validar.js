@@ -1,3 +1,22 @@
+////ocultar y mostrar  nav en base a la clase
+  
+let boton = document.getElementById("btn-menu");
+
+boton.addEventListener("click", function(){
+    document.querySelector("#menu .enlaces").classList.toggle("enlaces-active");
+    document.querySelector("#btn-menu .icono").classList.toggle("far");
+    document.querySelector("#btn-menu .icono").classList.toggle("fa-times-circle");
+
+});
+
+
+
+
+
+
+
+
+
 const Formulario = document.getElementById("Formulario");  //aceder a la idformulario
 
 const tota_input = document.querySelectorAll("#Formulario input");//aceder a todos los input del formulario, y se almacena en la constante tota_input en forma de arreglo
