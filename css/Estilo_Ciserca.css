@@ -3,18 +3,29 @@
 }
 
 body{
-    background: #ecf0f1;
-    font-family: sans-serif;
-    padding-top: 3rem;
+    background-color:#ffffff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-header{
-    background: #3F72AF;
-    width: 100%;
-    position: fixed;
-    top: 0;
+.encabezado{
+    border-bottom:#000000 0.4rem solid;
 }
-
+.encabezado .contenedor_logo{
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    padding:.5rem .5rem 0 .5rem;
+    text-align:left;
+    max-width: 1000px;
+}
+.encabezado .contenedor_logo img{
+    width: 25%;
+    height:auto;
+}
+nav{
+    background:linear-gradient(to top left,#112D4E,#3F72AF);
+    margin-bottom:3rem;
+}
 .menu{
     width:90%;
     margin: 0 auto;
@@ -25,9 +36,28 @@ header{
     height:auto;
     max-width: 1000px;
 }
+.menu .icono_movil p{
+    color:#ffa500;
+    text-transform: uppercase;
+    user-select: none;
+    position:relative;
+    animation-name: mover_text;
+    animation-duration: 9s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
 
-.menu .btn-menu{
-    display: none;
+@keyframes mover_text{
+    0%{left:0; color:#ffa500;}
+    40%{left:3rem; color:#ffffff;}
+    50%{left:3rem; color:#ffffff;}
+    90%{left:0; color:#ffa500;}
+    100%{left:0; color:#ffa500;}
+}
+
+
+.menu .btn-menu{ 
+   display: none;
    color: #ffffff;
    font-size: 1rem;
    padding: 0;
@@ -36,60 +66,43 @@ header{
    border: none;
    outline: 0;
 }
-
 .menu .enlaces{
     display: inline-block;
     text-align: right;
-    padding: 1rem 0;
+    padding: .5rem 0;
 }
-
 .menu .enlaces a{  
     color: #ffffff;
     text-decoration: none;
-    padding: 1rem;
+    padding: .5rem;
     margin-left: 0.5rem;
     border-radius: .3rem;
-    
 }
 
-
+.menu .enlaces a:hover{
+    background :#ffa500;
+}
 
 .enlaces a i{
     color: #ffffff;
     font-size: 1rem;
-    margin-right:.2rem;
+    margin-right:.5rem;
 }
 
-main{
-    width:90%;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.headroom{
-    transition: transform .3s ease;
-}
-
-.headroom--pinned{
-    transform: translateY(0%);
-}
-.headroom--unpinned{
-    transform: translateY(-100%);
-    
-}
-
-
-@media screen and (max-width:700px){
+@media screen and (max-width: 800px){
 
     .menu{
         flex-direction: column;
     }
-    .logo{
+    .icono_movil{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         width: 100%;
-        padding: 1rem;
+        padding: .2rem;
+    }
+    .menu .icono_movil p{
+        display:none;
     }
 
     .menu .btn-menu{
@@ -99,7 +112,6 @@ main{
    .menu .enlaces{
     display: none;
    }
-
   
     .menu .enlaces-active{
         width: 100%;
@@ -108,5 +120,4 @@ main{
         flex-wrap: wrap;
         justify-content: space-around; 
     }
-    
 }
